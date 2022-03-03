@@ -1,4 +1,5 @@
 
+/*
 
 CREATE TABLE BOOK(
 	
@@ -22,6 +23,7 @@ CREATE TABLE EDITOR (
     SurName VARCHAR(30) NOT NULL
 );
 
+
 truncate BOOK;
 INSERT INTO BOOK(ID, Title, AuthorID, EditorID)
 VALUES(1, "The Origin of the Species", 100, 2000),
@@ -42,7 +44,7 @@ VALUES(100, "Charles"           , "Darwin"   , 6 ),
       (103, "Josh"              , "Malerman" , 5 ),
       (104, "Carl"              , "Sagan"    , 12),
       (105, "Charles"           , "Dickens"  , 7 ),
-      (106, "Paul"              , "Scott"    , 2 );
+      (106, "Paul"              , "Scott"    , 4 );
 
 truncate EDITOR;
 INSERT INTO EDITOR(ID, FirstName, SurName)
@@ -54,6 +56,10 @@ VALUES(2000, "John"     , "Clark"  ),
       (2005, "Bella"    , "Porche" ),
       (2006, "Crist"    , "Megane" );
       
+      
+*/
+
+      
      
      
 -- anladığım kadarıyla SELECT sorgusu FOR gibi döngü yapıyor. Yani, her bir elemanı döngü halinde seçiyor. JOIN kullanmadığım zaman üstsel olarak sorgu dönüşü oldu
@@ -61,13 +67,14 @@ VALUES(2000, "John"     , "Clark"  ),
 
   
   
-	 SELECT BOOK.ID as BookID, BOOK.Title, AUTHOR.FirstName as AuthorName, AUTHOR.SurName as AuthorsSurname,  EDITOR.FirstName as EditorName, EDITOR.SurName as EditorSurname
-     FROM BOOK 
-     JOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID
-     JOIN EDITOR ON BOOK.EditorID = EDITOR.ID
-     ORDER BY Author.firstname ASC; 
+		SELECT BOOK.ID as BookID, BOOK.Title, AUTHOR.FirstName as AuthorName, AUTHOR.SurName as AuthorsSurname,  EDITOR.FirstName as EditorName, EDITOR.SurName as EditorSurname
+		FROM BOOK 
+		JOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID
+		JOIN EDITOR ON BOOK.EditorID = EDITOR.ID
+		ORDER BY Author.firstname ASC; 
      
-   
+		-- JOIN ile beraber iki tabloda eşleşen alanlar (ortak alanlar) önümüze getiriliyor
+		-- LEFT JOIN ile solda bulunan tablodaki değerleri alıyoruz, sağda hangileri var ise gerekli değerler tabloya ekleniyor, eşleşmeyenler ise NULL olarak kalıyor.
 
      
 /*

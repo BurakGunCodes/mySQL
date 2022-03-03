@@ -14,4 +14,5 @@ VALUES(2000, "John"     , "Clark"  ),
       (2003, "Jennifer" , "Arnold" ),
       (2004, "Malcom"   , "Five"   ),
       (2005, "Bella"    , "Porche" ),
-      (2006, "Crist"    , "Megane" );
+      (2006, "Crist"    , "Megane" ),
+      (2007, "Ceaser"   , "Hugo"   );

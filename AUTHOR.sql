@@ -6,7 +6,7 @@ CREATE TABLE AUTHOR (
     BookNumber INT DEFAULT 0 NOT NULL
 );
 
-
+-- BookNumber rastgele sayılar
 truncate AUTHOR;
 INSERT INTO AUTHOR(ID, FirstName, SurName, BookNumber)
 VALUES(100, "Charles"           , "Darwin"   , 6 ),
@@ -15,4 +15,6 @@ VALUES(100, "Charles"           , "Darwin"   , 6 ),
       (103, "Josh"              , "Malerman" , 5 ),
       (104, "Carl"              , "Sagan"    , 12),
       (105, "Charles"           , "Dickens"  , 7 ),
-      (106, "Paul"              , "Scott"    , 2 );
+      (106, "Paul"              , "Scott"    , 2 ),
+      (107, "Chris"             , "Day"      , 1 ),
+      (108, "Malcolm"           , "Gladwell" , 11);
