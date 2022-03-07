@@ -1,0 +1,122 @@
+[33mcommit 69393bb4252a9b7c6702fbf76df179a9326c39b1[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Burak Gun <burak.gun@hotmail.com>
+Date:   Thu Mar 3 16:05:50 2022 +0300
+
+    left join
+
+[1mdiff --git a/AUTHOR.sql b/AUTHOR.sql[m
+[1mindex 330df71..76f4cd9 100644[m
+[1m--- a/AUTHOR.sql[m
+[1m+++ b/AUTHOR.sql[m
+[36m@@ -6,7 +6,7 @@[m [mCREATE TABLE AUTHOR ([m
+     BookNumber INT DEFAULT 0 NOT NULL[m
+ );[m
+ [m
+[31m-[m
+[32m+[m[32m-- BookNumber rastgele sayılar[m
+ truncate AUTHOR;[m
+ INSERT INTO AUTHOR(ID, FirstName, SurName, BookNumber)[m
+ VALUES(100, "Charles"           , "Darwin"   , 6 ),[m
+[36m@@ -15,4 +15,6 @@[m [mVALUES(100, "Charles"           , "Darwin"   , 6 ),[m
+       (103, "Josh"              , "Malerman" , 5 ),[m
+       (104, "Carl"              , "Sagan"    , 12),[m
+       (105, "Charles"           , "Dickens"  , 7 ),[m
+[31m-      (106, "Paul"              , "Scott"    , 2 );[m
+\ No newline at end of file[m
+[32m+[m[32m      (106, "Paul"              , "Scott"    , 2 ),[m
+[32m+[m[32m      (107, "Chris"             , "Day"      , 1 ),[m
+[32m+[m[32m      (108, "Malcolm"           , "Gladwell" , 11);[m
+\ No newline at end of file[m
+[1mdiff --git a/BOOK.sql b/BOOK.sql[m
+[1mindex 3793f52..b467360 100644[m
+[1m--- a/BOOK.sql[m
+[1m+++ b/BOOK.sql[m
+[36m@@ -13,7 +13,9 @@[m [mINSERT INTO BOOK(ID, Title, AuthorID, EditorID)[m
+ VALUES(1, "The Origin of the Species", 100, 2000),[m
+ 	  (2, "Harry Potter"			 , 101, 2001),[m
+ 	  (3, "Lord of The Rings"		 , 102, 2002),[m
+[31m-      (4, "Bird Box"				 , 103, 2003),[m
+[32m+[m[32m      (4, "Bird Box"				 , 110, 2003),[m
+       (5, "The Pale Blue Dot"        , 104, 2004),[m
+       (6, "Cosmos"                   , 104, 2005),[m
+[31m-      (7, "Hobbit"                   , 102, 2006);[m
+\ No newline at end of file[m
+[32m+[m[32m      (7, "Hobbit"                   , 102, 2006),[m
+[32m+[m[32m      (8, "Ben Kirke"                , 103, 2007),[m
+[32m+[m[32m      (9, "Outliers"                 , 108, 2008);[m
+\ No newline at end of file[m
+[1mdiff --git a/EDITOR.sql b/EDITOR.sql[m
+[1mindex 42fd87d..7b6da92 100644[m
+[1m--- a/EDITOR.sql[m
+[1m+++ b/EDITOR.sql[m
+[36m@@ -14,4 +14,5 @@[m [mVALUES(2000, "John"     , "Clark"  ),[m
+       (2003, "Jennifer" , "Arnold" ),[m
+       (2004, "Malcom"   , "Five"   ),[m
+       (2005, "Bella"    , "Porche" ),[m
+[31m-      (2006, "Crist"    , "Megane" );[m
+\ No newline at end of file[m
+[32m+[m[32m      (2006, "Crist"    , "Megane" ),[m
+[32m+[m[32m      (2007, "Ceaser"   , "Hugo"   );[m
+\ No newline at end of file[m
+[1mdiff --git a/JoinExample.sql b/JoinExample.sql[m
+[1mindex 281dcd9..c2f1e3f 100644[m
+[1m--- a/JoinExample.sql[m
+[1m+++ b/JoinExample.sql[m
+[36m@@ -1,4 +1,5 @@[m
+ [m
+[32m+[m[32m/*[m
+ [m
+ CREATE TABLE BOOK([m
+ 	[m
+[36m@@ -22,6 +23,7 @@[m [mCREATE TABLE EDITOR ([m
+     SurName VARCHAR(30) NOT NULL[m
+ );[m
+ [m
+[32m+[m
+ truncate BOOK;[m
+ INSERT INTO BOOK(ID, Title, AuthorID, EditorID)[m
+ VALUES(1, "The Origin of the Species", 100, 2000),[m
+[36m@@ -42,7 +44,7 @@[m [mVALUES(100, "Charles"           , "Darwin"   , 6 ),[m
+       (103, "Josh"              , "Malerman" , 5 ),[m
+       (104, "Carl"              , "Sagan"    , 12),[m
+       (105, "Charles"           , "Dickens"  , 7 ),[m
+[31m-      (106, "Paul"              , "Scott"    , 2 );[m
+[32m+[m[32m      (106, "Paul"              , "Scott"    , 4 );[m
+ [m
+ truncate EDITOR;[m
+ INSERT INTO EDITOR(ID, FirstName, SurName)[m
+[36m@@ -54,6 +56,10 @@[m [mVALUES(2000, "John"     , "Clark"  ),[m
+       (2005, "Bella"    , "Porche" ),[m
+       (2006, "Crist"    , "Megane" );[m
+       [m
+[32m+[m[41m      [m
+[32m+[m[32m*/[m
+[32m+[m
+[32m+[m[41m      [m
+      [m
+      [m
+ -- anladığım kadarıyla SELECT sorgusu FOR gibi döngü yapıyor. Yani, her bir elemanı döngü halinde seçiyor. JOIN kullanmadığım zaman üstsel olarak sorgu dönüşü oldu[m
+[36m@@ -61,13 +67,14 @@[m [mVALUES(2000, "John"     , "Clark"  ),[m
+ [m
+   [m
+   [m
+[31m-	 SELECT BOOK.ID as BookID, BOOK.Title, AUTHOR.FirstName as AuthorName, AUTHOR.SurName as AuthorsSurname,  EDITOR.FirstName as EditorName, EDITOR.SurName as EditorSurname[m
+[31m-     FROM BOOK [m
+[31m-     JOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID[m
+[31m-     JOIN EDITOR ON BOOK.EditorID = EDITOR.ID[m
+[31m-     ORDER BY Author.firstname ASC; [m
+[32m+[m		[32mSELECT BOOK.ID as BookID, BOOK.Title, AUTHOR.FirstName as AuthorName, AUTHOR.SurName as AuthorsSurname,  EDITOR.FirstName as EditorName, EDITOR.SurName as EditorSurname[m
+[32m+[m		[32mFROM BOOK[m[41m [m
+[32m+[m		[32mJOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID[m
+[32m+[m		[32mJOIN EDITOR ON BOOK.EditorID = EDITOR.ID[m
+[32m+[m		[32mORDER BY Author.firstname ASC;[m[41m [m
+      [m
+[31m-   [m
+[32m+[m		[32m-- JOIN ile beraber iki tabloda eşleşen alanlar (ortak alanlar) önümüze getiriliyor[m
+[32m+[m		[32m-- LEFT JOIN ile solda bulunan tablodaki değerleri alıyoruz, sağda hangileri var ise gerekli değerler tabloya ekleniyor, eşleşmeyenler ise NULL olarak kalıyor.[m
+ [m
+      [m
+ /*[m
+[1mdiff --git a/sql-example.xlsx b/sql-example.xlsx[m
+[1mindex c3210fb..ccaa3dc 100644[m
+Binary files a/sql-example.xlsx and b/sql-example.xlsx differ
