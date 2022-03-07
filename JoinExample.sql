@@ -66,16 +66,23 @@ VALUES(2000, "John"     , "Clark"  ),
 -- Şöyle ki, 7 numara dönmesi gerekirken 7*7 ve hatta 7*7*7 adet dönüş oldu. Ve WHERE ifadesi bu noktada istediğim gibi çalışmadı
 
   
-  
-		SELECT BOOK.ID as BookID, BOOK.Title, AUTHOR.FirstName as AuthorName, AUTHOR.SurName as AuthorsSurname,  EDITOR.FirstName as EditorName, EDITOR.SurName as EditorSurname
+ /*
+ 		SELECT BOOK.ID as BookID, BOOK.Title, AUTHOR.FirstName as AuthorName, AUTHOR.SurName as AuthorsSurname ,  EDITOR.FirstName as EditorName, EDITOR.SurName as EditorSurname
 		FROM BOOK 
 		LEFT JOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID
 		LEFT JOIN EDITOR ON BOOK.EditorID = EDITOR.ID
 		ORDER BY Author.firstname ASC; 
+ 
+ */ 
+
      
 		-- JOIN ile beraber iki tabloda eşleşen alanlar (ortak alanlar) önümüze getiriliyor
 		-- LEFT JOIN ile solda bulunan tablodaki değerleri alıyoruz, sağda hangileri var ise gerekli değerler tabloya ekleniyor, eşleşmeyenler ise NULL olarak kalıyor.
 
+     
+		SELECT BOOK.ID , BOOK.Title , AUTHOR.FirstName , AUTHOR.SurName 
+        FROM BOOK 
+        FULL JOIN AUTHOR ON book.AuthorID = author.ID ;
      
 /*
 	 SELECT BOOK.ID, BOOK.Title, EDITOR.FirstName, EDITOR.SurName
