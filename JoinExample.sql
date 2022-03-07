@@ -69,8 +69,8 @@ VALUES(2000, "John"     , "Clark"  ),
   
 		SELECT BOOK.ID as BookID, BOOK.Title, AUTHOR.FirstName as AuthorName, AUTHOR.SurName as AuthorsSurname,  EDITOR.FirstName as EditorName, EDITOR.SurName as EditorSurname
 		FROM BOOK 
-		JOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID
-		JOIN EDITOR ON BOOK.EditorID = EDITOR.ID
+		LEFT JOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID
+		LEFT JOIN EDITOR ON BOOK.EditorID = EDITOR.ID
 		ORDER BY Author.firstname ASC; 
      
 		-- JOIN ile beraber iki tabloda eşleşen alanlar (ortak alanlar) önümüze getiriliyor
