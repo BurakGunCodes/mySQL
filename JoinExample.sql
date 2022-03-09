@@ -59,7 +59,9 @@ VALUES(2000, "John"     , "Clark"  ),
       
 */
 
-      use firstdb;
+      show databases;
+      
+      use examples;
      
      
 -- anladığım kadarıyla SELECT sorgusu FOR gibi döngü yapıyor. Yani, her bir elemanı döngü halinde seçiyor. JOIN kullanmadığım zaman üstsel olarak sorgu dönüşü oldu
@@ -82,7 +84,7 @@ VALUES(2000, "John"     , "Clark"  ),
         -- mySQL FULL JOIN desteklemiyor. Bunun yerine UNION ALL kullanılabilir. (LEFT JOIN) UNION ALL (RIGHT JOIN)
         -- FULL JOIN yapıldığı zaman sağdaki tablo ile soldaki tablodaki tüm veriler kesiştirilir.
         
-        /*
+        
         -- UNION 	 --> farklı değerleri birleştirir (only unique)
         -- UNION ALL --> bütün değerleri birleştirir  (including duplicates)
         
@@ -95,20 +97,7 @@ VALUES(2000, "John"     , "Clark"  ),
 		FROM 	BOOK
         LEFT 	JOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID ; 
         
-        */
-     
-/*
-	 SELECT BOOK.ID, BOOK.Title, EDITOR.FirstName, EDITOR.SurName
-     FROM BOOK
-     JOIN EDITOR ON BOOK.EditorID = EDITOR.ID;
-*/
 
-     
-     
-     
-     
-     
-     
-     
+
      
      
