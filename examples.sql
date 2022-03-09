@@ -3,7 +3,7 @@
 -- create database StockManagement ;
 
 CREATE TABLE Customers (
-    ID 		INT AUTO_INCREMENT PRIMARY KEY,
+    ID 		INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     cName 	VARCHAR(10),
     Age 	INT,
     Salary 	INT
