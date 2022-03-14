@@ -86,14 +86,14 @@ VALUES(2000, "John"     , "Clark"  ),
         -- UNION 	 --> farklı değerleri birleştirir (only unique)
         -- UNION ALL --> bütün değerleri birleştirir  (including duplicates)
         
-        
+
 		SELECT   BOOK.ID, BOOK.Title, AUTHOR.FirstName, AUTHOR.SurName 
         FROM 	BOOK
         RIGHT 	JOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID
         UNION  
 		SELECT   BOOK.ID, BOOK.Title, AUTHOR.FirstName, AUTHOR.SurName 
 		FROM 	BOOK
-        LEFT 	JOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID ; 
+        LEFT 	JOIN AUTHOR ON BOOK.AuthorID = AUTHOR.ID ;
         
         */
      
